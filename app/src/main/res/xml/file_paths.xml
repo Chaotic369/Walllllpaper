@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <!-- Exposes the app's internal files directory -->
+    <files-path name="internal_files" path="." />
+    <!-- Exposes the app's internal cache directory in case of temporary downloads -->
+    <cache-path name="internal_cache" path="." />
+</paths>

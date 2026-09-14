@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- Required for rendering remote web URLs inside the wallpaper engine -->
     <uses-permission android:name="android.permission.INTERNET" />
     
     <application
@@ -15,7 +14,6 @@
         android:theme="@android:style/Theme.NoTitleBar"
         tools:targetApi="31">
         
-        <!-- The Settings UI (Jetpack Compose) Entry Point -->
         <activity
             android:name=".ui.MainActivity"
             android:exported="true">
@@ -25,7 +23,6 @@
             </intent-filter>
         </activity>
 
-        <!-- The Live Wallpaper Engine -->
         <service
             android:name=".service.LiveWallpaperService"
             android:exported="true"
@@ -34,11 +31,21 @@
             <intent-filter>
                 <action android:name="android.service.wallpaper.WallpaperService" />
             </intent-filter>
-            <!-- Points to the XML file that defines this service as a wallpaper -->
             <meta-data
                 android:name="android.service.wallpaper"
                 android:resource="@xml/wallpaper_info" />
         </service>
+
+        <!-- FileProvider config for secure local file access -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
 
     </application>
 </manifest>

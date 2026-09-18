@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.yourdomain.webwallpaper"
-    compileSdk = 34
+        compileSdk = 35
 
     defaultConfig {
         applicationId = "com.yourdomain.webwallpaper"

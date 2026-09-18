@@ -23,6 +23,8 @@ jobs:
           java-version: '17'
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
+        with:
+          packages: 'platform-tools'
       - name: Accept SDK licenses
         run: yes | sdkmanager --licenses > /dev/null || true
       - name: Setup Node.js
